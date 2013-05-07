@@ -1,6 +1,11 @@
 Njooh::Application.routes.draw do
   get "home/index"
   
+  match '/about',to: 'home#about'
+  match '/careers',to: 'home#careers'
+  match '/developer',to: 'home#developer'
+  match '/contact',to: 'home#contact'
+  
   authenticated :user do
     root :to => 'home#index'
   end
