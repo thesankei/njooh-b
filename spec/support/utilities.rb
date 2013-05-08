@@ -1,9 +1,6 @@
-# Returns the full title on a per-page basis.
-def full_title(page_title)
-  base_title = "Njooh"
-    if page_title.empty?
-      base_title
-    else
-      "#{base_title} | #{page_title}"
-    end
+include ApplicationHelper
+
+#Gets title of page, a Capybara 2.0 hack
+def page_title(page)
+  page.html.match(/<title>(.*)<\/title>/)[1].to_s
 end
