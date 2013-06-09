@@ -24,5 +24,17 @@ class Ability
     #   can :update, Article, :published => true
     #
     # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
+    
+    user ||= User.new # guest user
+    if user.role? :admin
+      can :manage, :all
+    elsif user.role? :member
+      can :manage, Micropost do |micropost|
+        micropost.try(:owner) == user
+      end
+    else
+      can :read, :all
+    end
+    
   end
 end

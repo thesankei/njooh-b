@@ -12,6 +12,10 @@ gem 'devise', '>= 2.2.3'
 gem 'figaro', '>= 0.5.3'
 gem 'compass'
 gem 'cancan'
+gem 'faker', '1.0.1'
+gem 'will_paginate','3.0.4' #recomm on tut '3.0.3'
+gem 'bootstrap-will_paginate','0.0.9' #recomm on tut '0.0.6'
+gem 'rolify'
 
 
 # Gems used only for assets and not required

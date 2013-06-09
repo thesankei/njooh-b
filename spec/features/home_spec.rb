@@ -1,8 +1,15 @@
 require 'spec_helper'
+include Warden::Test::Helpers
+Warden.test_mode!
 
 feature "Home" do
   
   subject { page }
+  
+  let(:user) { FactoryGirl.create(:user) }
+  before do
+    login_as(user)
+  end
   
   describe "Index page" do
      before { visit home_index_path }
@@ -39,4 +46,8 @@ feature "Home" do
     it { should have_selector('h1',text: 'Contact Us') }
     it { page_title(page).should eq(full_title('Contact Us'))}
   end
+  
+  # To get Warden user login mechanism working correctly reset 
+  # Warden after each test.
+  Warden.test_reset!
 end

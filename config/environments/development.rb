@@ -35,6 +35,18 @@ Njooh::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   
-  #Set up default_url_options
+  # Set up default_url_options
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  
+  config.action_mailer.smtp_settings = {
+    :address => "smtp.gmail.com" ,
+    :port => 587,
+    :domain => "localhost" ,
+    :authentication => "plain" ,
+    :user_name => "devmensei@gmail.com" ,
+    :password => "jIngahII601" ,
+    :enable_starttls_auto => true
+  }
+  
 end

@@ -12,9 +12,15 @@ Njooh::Application.routes.draw do
   
   devise_for :users
   resources :users
+  resources :microposts, only: [:create, :destroy]
   
   devise_scope :user do
     get "/", :to => "devise/sessions#new"
+  end
+  
+   namespace :admin do
+    match '/' => 'users#index'
+    resources :users
   end
 
   # The priority is based upon order of creation:
