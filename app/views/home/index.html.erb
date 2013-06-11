@@ -1,3 +1,26 @@
-<% provide(:title,'')%>
-<h1>Njooh</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<% if user_signed_in? %>
+	<div class="row">
+		
+	  <div class="large-3 columns">
+	  	<section>
+			<%= render 'shared/user_info' %>
+		</section>
+		<p></p>
+		<section>
+			<%= render 'shared/micropost_form' %>
+		</section>
+	  </div>
+	  
+	  <div class="large-8 columns">
+	 	<h3 class="subheader">NjoohBuzz</h3>
+		<%= render 'shared/feed' %>
+	  </div>
+	  
+	  <div class="large-1 columns">
+	  	<p>#Bizness</p>
+	  </div>
+	  
+	</div>
+<% else%>
+	<p>You need to be signed in!!</p>
+<% end%>

@@ -5,6 +5,8 @@ class HomeController < ApplicationController
   layout :user_or_admin_layout
   
   def index
+    @micropost = current_user.microposts.build 
+    @feed_items = current_user.feed.paginate(page: params[:page])
   end
   
   def about

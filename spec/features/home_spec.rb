@@ -12,11 +12,25 @@ feature "Home" do
   end
   
   describe "Index page" do
-     before { visit home_index_path }
-     
-     it { should have_content 'Njooh' }
-     it { page_title(page).should eq(full_title(''))}
-     it { should_not have_selector 'title', text: '| Home' }
+  
+    let(:user) { FactoryGirl.create(:user) }
+    before do
+      FactoryGirl.create(:micropost, user: user, content: "Lorem ipsum")
+      FactoryGirl.create(:micropost, user: user, content: "Dolor sitamet")
+      
+      #sign_in user
+      #visit root_path
+      visit home_index_path
+    end
+    
+    it { should have_content 'Njooh' }
+    it { page_title(page).should eq(full_title(''))}
+    it { should_not have_selector 'title', text: '| Home' }
+    it "should render the user's feed" do
+      user.feed.each do |item|
+        page.should have_selector("li##{item.id}", text: item.content)
+      end
+    end
   end
   
   describe "About page" do

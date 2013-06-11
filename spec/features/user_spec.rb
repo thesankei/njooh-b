@@ -12,6 +12,7 @@ feature "User" do
   subject { user }
 
   it { should respond_to(:microposts) }
+  it { should respond_to(:feed) }
   
   describe "micropost associations" do
     before { user.save }
@@ -35,6 +36,17 @@ feature "User" do
       microposts.each do |micropost|
         Micropost.find_by_id(micropost.id).should be_nil
       end
+    end
+    
+    #Ensure a user's feed contains only his posts.
+    describe "status" do
+      let(:unfollowed_post) do
+        FactoryGirl.create(:micropost, user: FactoryGirl.create(:user))
+      end
+    
+      its(:feed) { should include(newer_micropost) }
+      its(:feed) { should include(older_micropost) }
+      its(:feed) { should_not include(unfollowed_post) }
     end
   end
   

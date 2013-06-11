@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   
-  #Bad hack.........................
+  #Bad hack.........................FIX THIS!!!
   if Rails.env.development?
     before_save :setup_role
   elsif Rails.env.production?
@@ -29,5 +29,11 @@ class User < ActiveRecord::Base
     if self.role_ids.empty?     
       self.role_ids = [2] 
     end
+  end
+  
+  #Gets current user activity feed.
+  def feed
+    # This is preliminary implementation.
+    Micropost.where("user_id = ?", id)
   end
 end
