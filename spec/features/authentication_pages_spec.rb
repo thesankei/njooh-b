@@ -29,6 +29,9 @@ feature "Authentication" do
           #before { delete micropost_path(FactoryGirl.create(:micropost)) }
           #specify { response.should redirect_to(signin_path) }
         end
+        
+        #Write a following test
+        #Write a followers test.
       end
     end
   end

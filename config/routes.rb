@@ -11,8 +11,13 @@ Njooh::Application.routes.draw do
   end
   
   devise_for :users
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :microposts, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
   
   devise_scope :user do
     get "/", :to => "devise/sessions#new"
