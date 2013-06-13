@@ -80,5 +80,5 @@ Njooh::Application.configure do
   }
   
   # Not sure what this does!
-  config.assets.precompile += %w( *.css *.js )
+  #config.assets.precompile += %w( *.css *.js )
 end

@@ -6,7 +6,6 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg', '0.15.0'
-gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'devise', '>= 2.2.3'
 gem 'figaro', '>= 0.5.3'
