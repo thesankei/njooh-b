@@ -16,6 +16,7 @@ gem 'faker', '1.0.1'
 gem 'will_paginate','3.0.4' #recomm on tut '3.0.3'
 gem 'bootstrap-will_paginate','0.0.9' #recomm on tut '0.0.6'
 gem 'rolify'
+gem 'acts-as-taggable-on'
 
 
 # Gems used only for assets and not required

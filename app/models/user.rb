@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   
   has_many :microposts, dependent: :destroy
+  has_many :blogposts, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: "followed" #should be _id
   has_many :reverse_relationships, foreign_key: "followed_id",
@@ -40,9 +41,12 @@ class User < ActiveRecord::Base
   
   #Gets current user activity feed.
   def feed
-    # This is preliminary implementation.
-    #Micropost.where("user_id = ?", id)
     Micropost.from_users_followed_by(self)
+  end
+  
+  #Gets current user blogpost feed.
+  def blog_feed
+    Blogpost.from_users_followed_by(self)
   end
   
   def following?(other_user)

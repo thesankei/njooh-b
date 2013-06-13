@@ -79,4 +79,6 @@ Njooh::Application.configure do
     :enable_starttls_auto => true
   }
   
+  # Not sure what this does!
+  config.assets.precompile += %w( *.css *.js )
 end

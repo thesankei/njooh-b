@@ -7,8 +7,8 @@ class MicropostsController < ApplicationController
     @micropost = current_user.microposts.build(params[:micropost])
     
     if @micropost.save
-      flash[:success] = "Micropost created!"
-      redirect_to root_path
+      #flash[:success] = "Micropost created!"
+      redirect_to root_path, :notice => 'Micropost created!'
     else
       @feed_items = [] #hack....change this behaviour
       render 'home/index'

@@ -50,8 +50,13 @@ module ApplicationHelper
   
   def signed_in_user
     unless signed_in?
-      store_location
+      #store_location
       redirect_to signin_path, notice: "Please sign in." 
     end
+  end
+  
+    def verify_admin
+    :authenticate_user!
+    redirect_to root_url unless has_role?(current_user, 'admin')
   end
 end

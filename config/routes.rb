@@ -1,10 +1,18 @@
 Njooh::Application.routes.draw do
+
+  resources :blogposts do
+    resources :comments
+  end
+
+
   get "home/index"
+  get 'tags/:tag', to: 'blogposts#blogfeed', as: :tag
   
   match '/about',to: 'home#about'
   match '/careers',to: 'home#careers'
   match '/developer',to: 'home#developer'
   match '/contact',to: 'home#contact'
+  match '/blogfeed',to: 'blogposts#blogfeed'
   
   authenticated :user do
     root :to => 'home#index'
