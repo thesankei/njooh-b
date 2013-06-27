@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130613060827) do
+ActiveRecord::Schema.define(:version => 20130626162858) do
 
   create_table "blogposts", :force => true do |t|
     t.string   "title"
@@ -41,6 +41,19 @@ ActiveRecord::Schema.define(:version => 20130613060827) do
 
   add_index "microposts", ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
 
+  create_table "places", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "location"
+    t.hstore   "data"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "places", ["data"], :name => "index_places_on_data"
+  add_index "places", ["user_id"], :name => "index_places_on_user_id"
+
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
@@ -52,6 +65,16 @@ ActiveRecord::Schema.define(:version => 20130613060827) do
   add_index "relationships", ["follower_id", "followed_id"], :name => "index_relationships_on_follower_id_and_followed_id", :unique => true
   add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
 
+  create_table "reviews", :force => true do |t|
+    t.string   "reviewer"
+    t.text     "content"
+    t.integer  "place_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "reviews", ["place_id"], :name => "index_reviews_on_place_id"
+
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -62,6 +85,17 @@ ActiveRecord::Schema.define(:version => 20130613060827) do
     t.integer "role_id"
     t.integer "user_id"
   end
+
+  create_table "sellables", :force => true do |t|
+    t.string   "name"
+    t.hstore   "data"
+    t.integer  "place_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sellables", ["data"], :name => "index_sellables_on_data"
+  add_index "sellables", ["place_id"], :name => "index_sellables_on_place_id"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"

@@ -16,6 +16,14 @@ gem 'will_paginate','3.0.4' #recomm on tut '3.0.3'
 gem 'bootstrap-will_paginate','0.0.9' #recomm on tut '0.0.6'
 gem 'rolify'
 gem 'acts-as-taggable-on'
+gem "twitter-bootstrap-rails", "~> 2.0.1.0"
+gem 'bootstrap-sass', '~> 2.3.0.1'
+
+# To use Memcached.
+gem 'dalli'
+
+# To use PostgreSQL hstore in Rails 3.x
+gem 'activerecord-postgres-hstore'
 
 
 # Gems used only for assets and not required
@@ -32,7 +40,8 @@ group :assets do
   gem 'zurb-foundation', '~> 4.0.0'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '3.0.1'
+#gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

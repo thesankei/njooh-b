@@ -1,5 +1,12 @@
 Njooh::Application.routes.draw do
 
+  resources :sellables
+  
+  resources :places do
+    resources :reviews
+  end
+
+
   resources :blogposts do
     resources :comments
   end

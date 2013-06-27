@@ -8,7 +8,7 @@ class Blogpost < ActiveRecord::Base
   
   acts_as_taggable
   
-  #Do data validations
+  # Do data validations
   validates :title, presence: true, length: { maximum: 140 } #Limit Title lenght to 140 chars
   validates :content, presence: true, length: { maximum: 5000 }
   validates :user_id, presence: true

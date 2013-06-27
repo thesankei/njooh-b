@@ -48,6 +48,7 @@ $grayLight: #888888;
     border-top: 1px solid #e8e8e8;
   }
 }
+
 #tag_cloud {
   //width: 400px;
   //line-height: 1.6em;
@@ -59,6 +60,25 @@ $grayLight: #888888;
   .tag6 { font-size: 2.0em; }
   .tag7 { font-size: 2.5em; }
   .tag8 { font-size: 3.0em; }
+}
+
+/*
+ * Reviews Styles
+ */
+.reviews {
+  list-style: none;
+  margin: 10px 0 0 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+
+.quote{
+  font-style:italic;
+  //font-weight:bold;
+  //font-family: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif;
+  font-family: Monaco, Consolas, "Lucida Console", monospace;
 }
 
 .custom_btn {
@@ -76,3 +96,4 @@ $grayLight: #888888;
   margin-top: 30px;
   bottom: 0px;
 }
+

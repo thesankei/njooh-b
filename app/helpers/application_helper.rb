@@ -55,8 +55,16 @@ module ApplicationHelper
     end
   end
   
-    def verify_admin
+  def verify_admin
     :authenticate_user!
     redirect_to root_url unless has_role?(current_user, 'admin')
+  end
+  
+  def flash_class(level)
+    case level
+      when :notice then 'info'
+      when :error then 'error'
+      when :alert then 'warning'
+    end
   end
 end
