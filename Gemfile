@@ -21,6 +21,7 @@ gem 'bootstrap-sass', '~> 2.3.0.1'
 
 # To use Memcached.
 gem 'dalli'
+gem 'rails-erd'
 
 # To use PostgreSQL hstore in Rails 3.x
 gem 'activerecord-postgres-hstore'

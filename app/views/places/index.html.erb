@@ -5,30 +5,34 @@
 	</div>
 	<div class="large-8 columns">
 		<h1 class="subheader">Njooh Places</h1>
+		
+		<ul class="thumbnails">
+		<% @places.each do |place| %>
 
-		<ul class="no-bullet">
-			<% @places.each do |place| %>
-			  <li class="<%= cycle('list_line_odd' , 'list_line_even' ) %>">
-			    <h3 class="subheader"><%= place.name %></h3>
-			    
-			    <div class="th radius">
-			    	<%= link_to image_tag('demo2-th.jpg'),place %>
-					
-				</div>
-			    <p>
-			    	<%= truncate(strip_tags(place.description),:length => 300) %>
+			  <li class="span3">
+			    <div class="thumbnail">
+			      <h3>
+			      	<%= place.name %>
+			      </h3>
+			      <%= link_to image_tag('demo1.jpg'), place %>
+
+			      <p>
+			      	<%= truncate(strip_tags(place.description),:length => 300) %>
 			    	<%= link_to 'More Details', place %>
-			    </p>
-			    
-			    <span class="timestamp">
+			      </p>
+			      
+			      <span class="timestamp">
 					Created <%= time_ago_in_words(place.created_at) %> ago.
 				</span>
 				
 			    <%= link_to 'Edit', edit_place_path(place) %>
 			    <%= link_to 'Delete Place', place, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+			      
+			    </div>
 			  </li>
-			<% end %>
-		</ul>
+		<% end %>
+	</ul>
 		
 		<br />
 		

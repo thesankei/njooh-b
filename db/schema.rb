@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130626162858) do
+ActiveRecord::Schema.define(:version => 20130628063554) do
 
   create_table "blogposts", :force => true do |t|
     t.string   "title"
@@ -45,13 +45,11 @@ ActiveRecord::Schema.define(:version => 20130626162858) do
     t.string   "name"
     t.text     "description"
     t.string   "location"
-    t.hstore   "data"
     t.integer  "user_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "places", ["data"], :name => "index_places_on_data"
   add_index "places", ["user_id"], :name => "index_places_on_user_id"
 
   create_table "relationships", :force => true do |t|
