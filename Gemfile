@@ -32,6 +32,9 @@ gem 'activerecord-postgres-hstore'
 #Optimize the site for mobile devices.
 gem 'ress'
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

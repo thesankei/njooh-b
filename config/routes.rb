@@ -25,7 +25,9 @@ Njooh::Application.routes.draw do
     root :to => 'home#index'
   end
   
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  #Add this later :registrations => "registrations"
+  
   resources :users do
     member do
       get :following, :followers
