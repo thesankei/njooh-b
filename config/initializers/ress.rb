@@ -28,7 +28,7 @@ Ress.configure do |config|
   #
   # http://modernizr.com/download/#-touch-mq-teststyles-prefixes
   #
-  config.include_modernizr = true
+  # config.include_modernizr = false
 
 
   # == Adding Alternate Site Versions
