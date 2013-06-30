@@ -69,7 +69,6 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
-    dalli (2.6.4)
     database_cleaner (0.9.1)
     debug_inspector (0.0.2)
     devise (2.2.3)
@@ -247,7 +246,6 @@ DEPENDENCIES
   capybara (>= 2.0.2)
   coffee-rails (~> 3.2.1)
   compass
-  dalli
   database_cleaner (>= 0.9.1)
   devise (>= 2.2.3)
   email_spec (>= 1.4.0)

@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+#ruby '1.9.2'
 
 gem 'rails', '3.2.13'
 
@@ -20,7 +21,7 @@ gem "twitter-bootstrap-rails", "~> 2.0.1.0"
 gem 'bootstrap-sass', '~> 2.3.0.1'
 
 # To use Memcached.
-gem 'dalli'
+#gem 'dalli'
 
 #A documentation tool for generating ERDs from models.
 gem 'rails-erd'
