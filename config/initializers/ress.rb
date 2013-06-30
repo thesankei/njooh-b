@@ -43,10 +43,10 @@ Ress.configure do |config|
   # precedence over those in "app/views" and add `mobile_request?` controller /
   # helper method to your application.
   #
-  config.add_alternate({
-    :name  => 'mobile',
-    :media => 'only screen and (max-width: 640px)'
-   })
+  # config.add_alternate({
+  #  :name  => 'mobile',
+  #  :media => 'only screen and (max-width: 640px)'
+  # })
   #
   # You can configure the subdomain of a version by passing the ":subdomain"
   # option to "add_alternate". For example, the below will serve the mobile
