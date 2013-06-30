@@ -11,6 +11,8 @@ demo2.jpg: demo2.jpg
 demo2/index.jpg: demo2.jpg
 demo3.jpg: demo3.jpg
 demo3/index.jpg: demo3.jpg
+fb.png: fb.png
+fb/index.png: fb.png
 one.jpg: one.jpg
 one/index.jpg: one.jpg
 rails.png: rails.png
