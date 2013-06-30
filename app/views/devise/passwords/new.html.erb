@@ -1,7 +1,12 @@
 <% provide(:title,'Forgot Password')%>
 <div class="row">
   <div class="large-8 columns">
-  	<%= render 'layouts/general/slideshow' %>
+  	
+	<% if mobile_request? %>
+	  <p class="subheader">Welcome,</p>
+	<% else %>
+	  <%= render 'layouts/general/slideshow' %>
+	<% end %>
   </div>
   <div class="large-4 columns">
   	

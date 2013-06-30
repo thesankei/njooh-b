@@ -21,11 +21,15 @@ gem 'bootstrap-sass', '~> 2.3.0.1'
 
 # To use Memcached.
 gem 'dalli'
+
+#A documentation tool for generating ERDs from models.
 gem 'rails-erd'
 
 # To use PostgreSQL hstore in Rails 3.x
 gem 'activerecord-postgres-hstore'
 
+#Optimize the site for mobile devices.
+gem 'ress'
 
 # Gems used only for assets and not required
 # in production environments by default.
