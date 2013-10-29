@@ -280,7 +280,7 @@ DEPENDENCIES
   launchy (>= 2.1.2)
   omniauth
   omniauth-facebook
-  pg (= 0.15.0)
+  pg
   quiet_assets (>= 1.0.1)
   rails (= 3.2.13)
   rails-erd

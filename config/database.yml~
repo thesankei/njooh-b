@@ -17,7 +17,7 @@ development:
   encoding: unicode
   database: njooh_development
   pool: 5
-  username: delta16
+  username: admin
   password: 
 
   # Connect on a TCP socket. Omitted by default since the client uses a
