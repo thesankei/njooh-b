@@ -45,9 +45,11 @@
 					Posted <%= time_ago_in_words(review.created_at) %> ago.
 				</span>
 				<p>
-				  <%= link_to 'Delete Review', [review.place, review],
+					<% if current_user?(review.place.user) %>
+				  		<%= link_to 'Delete Review', [review.place, review],
 				               method: :delete,
 				               data: { confirm: 'Are you sure?' } %>
+				    <% end %>
 				</p>
 			  </li>
 			<% end %>
