@@ -24,10 +24,10 @@
 			      <span class="timestamp">
 					Created <%= time_ago_in_words(place.created_at) %> ago.
 				</span>
-				
-			    <%= link_to 'Edit', edit_place_path(place) %>
-			    <%= link_to 'Delete Place', place, method: :delete, data: { confirm: 'Are you sure?' } %>
-
+				<% if current_user?(place.user) %>
+			    	<%= link_to 'Edit', edit_place_path(place) %>
+			    	<%= link_to 'Delete Place', place, method: :delete, data: { confirm: 'Are you sure?' } %>
+				<% end %>
 			      
 			    </div>
 			  </li>
