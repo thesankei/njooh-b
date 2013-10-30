@@ -1,4 +1,3 @@
-<%= form_for(@place) do |f| %>
   <% if @place.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@place.errors.count, "error") %> prohibited this place from being saved:</h2>
@@ -23,8 +22,45 @@
     <%= f.label :location %><br />
     <%= f.text_field :location %>
   </div>
-
+	
+	<div class="clearfix">
+    <h4>Select Places Images</h4>
+    
+		<%= f.fields_for :place_assets do |asset_fields| %>
+		
+			<% if asset_fields.object.new_record? %>
+			<p>
+				<%= asset_fields.file_field :place_asset %>
+				<%= asset_fields.text_field :caption, :class => 'text_area',:placeholder =>'Image caption' %>
+			</p>
+			<% end %>
+		
+		<% end %>
+	</div>
+	
+	<div class="clearfix">
+	    <h4>Place Images</h4>	
+		<ul class="thumbnails">
+			<%= f.fields_for :place_assets do |asset_fields| %>
+				<% unless asset_fields.object.new_record? %>
+				  <li class="span4">
+				    <div class="thumbnail">
+				      <%= link_to image_tag(asset_fields.object.image.url(:large)), '#' %>
+					  <%= asset_fields.check_box :_destroy %>	
+				      <h3>
+				      	<%= @place.name %>
+				      </h3>
+				      <p>
+				      	<%= truncate(strip_tags(asset_fields.object.caption),:length => 100) %>
+				      </p>
+				    </div>
+				  </li>
+				<% end %>
+			<% end %>
+		</ul>
+	</div>
+	
   <div class="actions">
     <%= f.submit %>
   </div>
-<% end %>
+

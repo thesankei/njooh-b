@@ -25,6 +25,7 @@ class PlacesController < ApplicationController
   # GET /places/new.json
   def new
     @place = Place.new
+    5.times { @place.place_assets.build }
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +36,7 @@ class PlacesController < ApplicationController
   # GET /places/1/edit
   def edit
     @place = Place.find(params[:id])
+    5.times { @place.place_assets.build }
   end
 
   # POST /places

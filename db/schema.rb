@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130630114831) do
+ActiveRecord::Schema.define(:version => 20131030172632) do
 
   create_table "blogposts", :force => true do |t|
     t.string   "title"
@@ -41,6 +41,16 @@ ActiveRecord::Schema.define(:version => 20130630114831) do
 
   add_index "microposts", ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"
 
+  create_table "place_assets", :force => true do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "caption"
+    t.integer  "place_id"
+  end
+
   create_table "places", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -48,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20130630114831) do
     t.integer  "user_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "place_id"
   end
 
   add_index "places", ["user_id"], :name => "index_places_on_user_id"

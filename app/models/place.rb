@@ -1,9 +1,11 @@
 class Place < ActiveRecord::Base
-  attr_accessible :data, :description, :location, :name
-    
-  belongs_to :user
+  attr_accessible :data, :description, :location, :name, :place_assets_attributes ,:place_assets
   
-  has_many :sellables, dependent: :destroy
+  belongs_to :user
+  has_many :place_assets,:dependent => :destroy
+  accepts_nested_attributes_for :place_assets, :allow_destroy => true
+  
+  #has_many :sellables, dependent: :destroy
   has_many :reviews, dependent: :destroy
   
   # Do data validations....validate 'data'

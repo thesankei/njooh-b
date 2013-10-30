@@ -19,6 +19,9 @@ gem 'rolify'
 gem 'acts-as-taggable-on'
 gem "twitter-bootstrap-rails", "~> 2.0.1.0"
 gem 'bootstrap-sass', '~> 2.3.0.1'
+gem "paperclip" #, "~> 3.0"
+gem 'aws-sdk'
+#gem 'rmagick'
 
 # To use Memcached.
 #gem 'dalli'
