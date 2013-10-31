@@ -3,6 +3,9 @@ class PlacesController < ApplicationController
   # GET /places.json
   def index
     @places = Place.all
+    @places.each do |place|
+      place.assets.build 
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +17,7 @@ class PlacesController < ApplicationController
   # GET /places/1.json
   def show
     @place = Place.find(params[:id])
+    5.times { @place.assets.build }
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,7 +29,7 @@ class PlacesController < ApplicationController
   # GET /places/new.json
   def new
     @place = Place.new
-    5.times { @place.place_assets.build }
+    5.times { @place.assets.build }
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,7 +40,7 @@ class PlacesController < ApplicationController
   # GET /places/1/edit
   def edit
     @place = Place.find(params[:id])
-    5.times { @place.place_assets.build }
+    5.times { @place.assets.build }
   end
 
   # POST /places

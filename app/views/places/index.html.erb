@@ -14,7 +14,7 @@
 			      <h3>
 			      	<%= place.name %>
 			      </h3>
-			      <%= link_to image_tag('demo1.jpg'), place %>
+			      <%= link_to image_tag(place.assets.first.asset.url(:large)), place %>
 
 			      <p>
 			      	<%= truncate(strip_tags(place.description),:length => 300) %>

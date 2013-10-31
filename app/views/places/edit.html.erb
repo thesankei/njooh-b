@@ -1,8 +1,22 @@
-<h1>Editing place</h1>
-
-<%= form_for @place, :html => { :multipart => true }, :url => places_path, :html => { :class => :form } do |f| -%>
+<% provide(:title,'Edit A Place')%>
+<div class="row">	
+  <div class="large-2 columns">
+  	<p></p>
+  </div>
+  
+  <div class="large-8 columns">
+  	<h1 class="subheader">Edit Place</h1>
+ 	
+ 	<%= form_for @place, :html => { :multipart => true }, :url => places_path, :html => { :class => :form } do |f| -%>
 	  <%= render :partial => "form", :locals => {:f => f} %>
-<% end -%>
+	<% end -%>
 
-<%= link_to 'Show', @place %> |
-<%= link_to 'Back', places_path %>
+	<%= link_to 'Show', @place %> |
+	<%= link_to 'Back', places_path %>
+
+  </div>
+  
+  <div class="large-2 columns">
+  	<p></p>
+  </div>
+</div>

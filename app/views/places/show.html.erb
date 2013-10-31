@@ -14,7 +14,28 @@
 	</h2>
 	<div class="row">
 		<div class=" small-8 columns">
-			<%= render 'layouts/general/slideshow' %>	
+			<!-- Orbit Container -->
+			<%= form_for @place, :html => { :multipart => true }, :url => place_path(@place), :html => { :class => "edit_property", :id => "edit_property" } do |f| -%>
+	  				<input name="_method" type="hidden" value="put" />
+			<div class="orbit-container">
+			  <ul data-orbit="" class="orbit-slides-container">
+			  	
+			  	<!--Loop for adding images to slideshow -->
+			  	<%=f.fields_for :assets do |asset_fields| %>
+					<% unless asset_fields.object.new_record? %>
+				  		<li>
+					      <%= link_to image_tag(asset_fields.object.asset.url(:large)), '#' %>
+						  <div class="orbit-caption">
+						  		<%= truncate(strip_tags(asset_fields.object.caption),:length => 100) %>
+						  </div>
+					  </li>
+					<% end %>
+				<% end %>
+				
+			  </ul>
+			</div>
+			<% end -%>
+	
 		</div>
 		<div class="small-4 columns">
 			<p>
