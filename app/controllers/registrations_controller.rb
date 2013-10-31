@@ -1,4 +1,20 @@
 class RegistrationsController < Devise::RegistrationsController
+  
+  def new
+    @user = User.new
+    1.times { @user.assets.build }
+    end
+  end
+  
+  # GET /places/1/edit
+  def edit
+    @user = User.find(params[:id])
+    5.times { @User.assets.build }
+  end
+  
+  #
+  # Modified update method
+  #
   def update
     # required for settings form to submit when password is left blank
     if params[:user][:password].blank?
