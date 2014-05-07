@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
+#ruby '1.9.3'
 
 gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'#, '0.15.0'
+gem 'pg'
 gem 'simple_form'
 gem 'devise', '>= 2.2.3'
 gem 'figaro', '>= 0.5.3'
@@ -43,7 +43,7 @@ gem 'omniauth-facebook'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
+  gem 'compass-rails', '~> 1.0.3'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
@@ -95,5 +95,5 @@ group :test do
 end
 
 group :production do
-  gem 'pg'#, '0.15.0'
+  gem 'pg'
 end
